@@ -1,15 +1,15 @@
-const discord = require("discord.js") 
-const client = new discord.Client()
+# Use the latest 2.1 version of CircleCI pipeline process engine. See: 
+version: 2.1
+# Use a package of configuration called an orb.
+orbs:
+  # Declare a dependency on the welcome-orb
+  welcome: circleci/welcome-orb@0.4.1
+# Orchestrate or schedule a set of jobs
+workflows:
+  # Name the workflow "welcome"
+  welcome:
+    # Run the welcome/run job in its own container
+    jobs:
+      - welcome/run
 
-client.on("ready",() => {
- console.log("I am ready,my mont")
-});
-
-
-client.on("message",message => {
- if (message.content === "!ping"){
-   return message.channel.send("Pong" +client.ws.ping)
-  }
-})
-
-client.login("NzUwNDU4MzYzODYyODQzNDk0.X0600A.EvHvTxpCbUb_Hx3u_uvr6w2NTPQ")
+#client.login = (RWV8jjx70qE2Oi_1L58F62KMfWCcRQ7N)
